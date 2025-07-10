@@ -69,8 +69,52 @@
   </style>
 </head>
 <body>
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luc Isenmann - Biographie</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    section {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2, h3 {
+      color: #2c3e50;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
   <section id="bio">
     <h2>Luc Isenmann</h2>
+    <img src="luc-isenmann.jpg" alt="Luc Isenmann playing drums" />
 
     <!-- Version française -->
     <div lang="fr">
@@ -108,7 +152,7 @@
   </section>
 </body>
 </html>
-
+ 
     <section id="musique">
       <h2>Musique</h2>
       <div class="audio">
