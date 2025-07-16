@@ -2,279 +2,333 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luc Isenmann</title>
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-	font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-    }
-	h1, h2, h3 {
- 	 font-family: 'Lora', serif;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luc Isenmann</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
 
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 2rem;
-      min-height: 100vh;
-    }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            min-height: 100vh;
+        }
 
-    header {
-      max-width: 900px;
-      margin: 0 auto;
-      background: rgba(0, 0, 0, 0.85);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      border-radius: 10px;
-    }
+        header {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-radius: 10px;
+        }
 
-    nav {
-      background: rgba(0, 0, 0, 0.85);
-      color: white;
-      text-align: center;
-      padding: 0.5rem;
-      position: sticky;
-      top: 20px;
-      z-index: 999;
-      max-width: 900px;
-      margin: 1rem auto;
-      border-radius: 10px;
-    }
+        nav {
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            position: sticky;
+            top: 20px;
+            z-index: 999;
+            max-width: 900px;
+            margin: 1rem auto;
+            border-radius: 10px;
+        }
 
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    section {
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: 3rem auto;
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
-      animation: fadeIn 1s ease-out both;
-    }
+        section {
+            padding: 2rem 1rem;
+            max-width: 900px;
+            margin: 3rem auto;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            animation: fadeIn 1s ease-out both;
+        }
 
-    footer {
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      max-width: 900px;
-      margin: 0 auto;
-      border-radius: 10px;
-    }
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
 
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-      font-size: 26px;
-    }
+        h2 {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 26px;
+        }
 
-    h3 {
-      color: #ffc107;
-      margin-top: 1rem;
-    }
+        h3 {
+            color: #ffc107;
+            margin-top: 1rem;
+        }
 
-    p, li {
-      font-size: 18px;
-      line-height: 1.6;
-    }
+        p, li {
+            font-size: 18px;
+            line-height: 1.6;
+        }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin: 1rem 0;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1.5s forwards ease-out;
-    }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 1rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.5s forwards ease-out;
+        }
 
-    iframe {
-      display: block;
-      margin: 2rem auto;
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    }
+        iframe {
+            display: block;
+            margin: 2rem auto;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
 
-    ul {
-      padding-left: 1.2rem;
-    }
+        ul {
+            padding-left: 1.2rem;
+        }
 
-    #topBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #ffc107;
-      color: #000;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 30px;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      z-index: 1000;
-    }
+        #topBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ffc107;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+            z-index: 1000;
+        }
 
-    #topBtn:hover {
-      background-color: #ffca2c;
-    }
+        #topBtn:hover {
+            background-color: #ffca2c;
+        }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
-      }
-      p {
-        font-size: 16px;
-      }
-    }
-  /* Carrousel */
-    #photos {
-      text-align: center;
-    }
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-    }
-    .carousel-track {
-      display: flex;
-      transition: transform 0.4s ease-in-out;
-    }
-    .carousel-track img {
-      width: 400px;
-      height: auto;
-      margin: 0 10px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      flex-shrink: 0;
-    }
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      border: none;
-      color: white;
-      padding: 10px;
-      cursor: pointer;
-      font-size: 24px;
-      z-index: 10;
-    }
-    .prev-btn {
-      left: 0;
-    }
-    .next-btn {
-      right: 0;
-    }
-  </style>
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+        /* Carrousel */
+        #photos {
+            text-align: center;
+        }
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            /* Permet de positionner les boutons par rapport à ce conteneur */
+            width: fit-content; /* S'adapte à la largeur du contenu */
+            margin: 0 auto; /* Centre le conteneur */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+        .carousel-track img {
+            width: 400px;
+            height: auto;
+            margin: 0 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            flex-shrink: 0; /* Empêche les images de rétrécir */
+        }
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10;
+        }
+        .prev-btn {
+            left: 0;
+        }
+        .next-btn {
+            right: 0;
+        }
+    </style>
 </head>
 <body>
-  <div class="overlay">
-    <header>
-      <h1>Luc Isenmann</h1>
-      <p>Batteur de Jazz Contemporain – Improvisateur et enseignant</p>
-    </header>
+    <div class="overlay">
+        <header>
+            <h1>Luc Isenmann</h1>
+            <p>Batteur de Jazz Contemporain – Improvisateur et enseignant</p>
+        </header>
 
-    <nav>
-      <a href="#bio">Biographie</a>
-      <a href="#concerts">Concerts</a>
-      <a href="#musique">Musique</a>
-      <a href="#photos">Images</a>
-      <a href="#contact">Contact</a>
-    </nav>
+        <nav>
+            <a href="#bio">Biographie</a>
+            <a href="#concerts">Concerts</a>
+            <a href="#musique">Musique</a>
+            <a href="#photos">Images</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-    <section id="bio">
-      <h2>Luc Isenmann - Batteur de Jazz, improvisateur et enseignant</h2>
-      <img src="luc-isenmann.jpg" alt="Luc Isenmann jouant de la batterie">
+        <section id="bio">
+            <h2>Luc Isenmann - Batteur de Jazz, improvisateur et enseignant</h2>
+            <img src="luc-isenmann.jpg" alt="Luc Isenmann jouant de la batterie">
 
-      <div lang="fr">
-        <h3>Biographie (FR)</h3>
-        <p>Luc Isenmann est une figure du jazz contemporain. Formé au CRR de Strasbourg puis au CNSM de Paris, élève de Daniel Humair, il développe une carrière de sideman à Paris depuis 1997. Suite à un prix de soliste au concours d’Avignon en 1998, il est repéré par Aldo Romano, qui l’appelle pour divers remplacements. Très marqué par ses rencontres lors de master-class avec Paul Motian, Max Roach, Roy Haynes, Peter Erskine, Dave Holland, Richie Beirach, Dave Liebman, Joe Lovano, il joue en big bands sous la direction de Carla Bley, Maria Schneider, Bob Brookmeyer, Jim McNeely.<p>
-        <p>Il a collaboré avec de nombreux musiciens français tels que Michel El Malem (Marc Copland, Romain Pilon, Stéphane Kerecki) avec lequel il obtient le prix de l’Académie du jazz (prix du meilleur disque français 2012) pour son album « Reflets », Gary Brunton (Pee Bee et Brunt’Off), David Patrois/Jean-Charles Richard Trio, Antoine Delaunay/Mélanie Dahan 5tet, Benjamin Moussay Trio, Géraldine Laurent/Laurent de Wilde, Fred Favarel Trio et Pierre de Bethmann.</p>
-<p>Nombreuses tournées internationales (Maroc, Soudan, Ukraine, Russie, Chine, Bolivie, et dans toute l’Europe). <p>
-        <p>Il joue également aux côtés de musiciens américains tels Greg Osby, Marc Copland, Jerry Bergonzi, Jacky Terrasson, Ricky Ford, Sarah Morrow, Hal Singer, .</p>
-        <p>Il se produit régulièrement en solo au Musée de la Musique (Philharmonie de Paris).</p>
-        <p>Luc Isenmann enseigne la batterie jazz au Conservatoire de Strasbourg, niveau Dem et Dnspm (HEAR, Haute Ecole des Arts du Rhin).</p>
-      </div>
+            <div lang="fr">
+                <h3>Biographie (FR)</h3>
+                <p>Luc Isenmann est une figure du jazz contemporain. Formé au CRR de Strasbourg puis au CNSM de Paris, élève de Daniel Humair, il développe une carrière de sideman à Paris depuis 1997. Suite à un prix de soliste au concours d’Avignon en 1998, il est repéré par Aldo Romano, qui l’appelle pour divers remplacements. Très marqué par ses rencontres lors de master-class avec Paul Motian, Max Roach, Roy Haynes, Peter Erskine, Dave Holland, Richie Beirach, Dave Liebman, Joe Lovano, il joue en big bands sous la direction de Carla Bley, Maria Schneider, Bob Brookmeyer, Jim McNeely.<p>
+                <p>Il a collaboré avec de nombreux musiciens français tels que Michel El Malem (Marc Copland, Romain Pilon, Stéphane Kerecki) avec lequel il obtient le prix de l’Académie du jazz (prix du meilleur disque français 2012) pour son album « Reflets », Gary Brunton (Pee Bee et Brunt’Off), David Patrois/Jean-Charles Richard Trio, Antoine Delaunay/Mélanie Dahan 5tet, Benjamin Moussay Trio, Géraldine Laurent/Laurent de Wilde, Fred Favarel Trio et Pierre de Bethmann.</p>
+                <p>Nombreuses tournées internationales (Maroc, Soudan, Ukraine, Russie, Chine, Bolivie, et dans toute l’Europe). <p>
+                <p>Il joue également aux côtés de musiciens américains tels Greg Osby, Marc Copland, Jerry Bergonzi, Jacky Terrasson, Ricky Ford, Sarah Morrow, Hal Singer, .</p>
+                <p>Il se produit régulièrement en solo au Musée de la Musique (Philharmonie de Paris).</p>
+                <p>Luc Isenmann enseigne la batterie jazz au Conservatoire de Strasbourg, niveau Dem et Dnspm (HEAR, Haute Ecole des Arts du Rhin).</p>
+            </div>
 
-      <div lang="en" style="margin-top: 2em;">
-        <h3>Biography (EN)</h3>
-         Luc Isenmann is a leading figure in contemporary jazz. Trained at the CRR in Strasbourg and then at the CNSM in Paris, a student of Daniel Humair, he has been developing a career as a sideman in Paris since 1997. Following a soloist prize at the Avignon competition in 1998, he was spotted by Aldo Romano, who called him in for various replacements. Deeply influenced by his encounters during masterclasses with Paul Motian, Max Roach, Roy Haynes, Peter Erskine, Dave Holland, Richie Beirach, Dave Liebman, Joe Lovano, he plays in big bands under the direction of Carla Bley, Maria Schneider, Bob Brookmeyer, Jim McNeely.
-<p>He has collaborated with numerous French musicians such as Michel El Malem (Marc Copland, Romain Pilon, Stéphane Kerecki), with whom he won the Académie du Jazz Prize (Best French Album 2012) for his album "Reflets", Gary Brunton (Pee Bee and Brunt'Off), David Patrois/Jean-Charles Richard Trio, Antoine Delaunay/Mélanie Dahan 5tet, Benjamin Moussay Trio, Géraldine Laurent/Laurent de Wilde, Fred Favarel Trio, and Pierre de Bethmann.</p>
-<p>Numerous international tours (Morocco, Sudan, Ukraine, Russia, China, Bolivia, and throughout Europe). <p>
-<p>He also plays alongside American musicians such as Greg Osby, Marc Copland, Jerry Bergonzi, Jacky Terrasson, Ricky Ford, Sarah Morrow, Hal Singer.</p>
-<p>He regularly performs solo at the Musée de la Musique (Philharmonie de Paris).</p>
-<p>Luc Isenmann teaches jazz drums at the Strasbourg Conservatory, at Dem and Dnspm level (HEAR, Haute Ecole des Arts du Rhin).</p>
-</div>
-   </section>
+            <div lang="en" style="margin-top: 2em;">
+                <h3>Biography (EN)</h3>
+                <p>Luc Isenmann is a leading figure in contemporary jazz. Trained at the CRR in Strasbourg and then at the CNSM in Paris, a student of Daniel Humair, he has been developing a career as a sideman in Paris since 1997. Following a soloist prize at the Avignon competition in 1998, he was spotted by Aldo Romano, who called him in for various replacements. Deeply influenced by his encounters during masterclasses with Paul Motian, Max Roach, Roy Haynes, Peter Erskine, Dave Holland, Richie Beirach, Dave Liebman, Joe Lovano, he plays in big bands under the direction of Carla Bley, Maria Schneider, Bob Brookmeyer, Jim McNeely.</p>
+                <p>He has collaborated with numerous French musicians such as Michel El Malem (Marc Copland, Romain Pilon, Stéphane Kerecki), with whom he won the Académie du Jazz Prize (Best French Album 2012) for his album "Reflets", Gary Brunton (Pee Bee and Brunt'Off), David Patrois/Jean-Charles Richard Trio, Antoine Delaunay/Mélanie Dahan 5tet, Benjamin Moussay Trio, Géraldine Laurent/Laurent de Wilde, Fred Favarel Trio, and Pierre de Bethmann.</p>
+                <p>Numerous international tours (Morocco, Sudan, Ukraine, Russia, China, Bolivia, and throughout Europe). <p>
+                <p>He also plays alongside American musicians such as Greg Osby, Marc Copland, Jerry Bergonzi, Jacky Terrasson, Ricky Ford, Sarah Morrow, Hal Singer.</p>
+                <p>He regularly performs solo at the Musée de la Musique (Philharmonie de Paris).</p>
+                <p>Luc Isenmann teaches jazz drums at the Strasbourg Conservatory, at Dem and Dnspm level (HEAR, Haute Ecole des Arts du Rhin).</p>
+            </div>
+        </section>
 
-    <section id="concerts"> 
-      <h2>Prochains concerts</h2>
-      <ul>
-        <li>18 septembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Orléans</li>
-        <li>21 septembre 2025 : Claudio Pallaro Quartet - Antony</li>
-        <li>12 octobre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Maintenon</li>
-        <li>4 novembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - St Jean d'Angély</li>
-        <li>7 novembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Courville/Eure</li>
-        <li>16 novembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Jazz sur Camembert</li>
-        <li>29 janvier 2026 : Antoine Delaunay/Mélanie Dahan Quintet - Les Bascules, Paris</li>
-        <li>14 mars 2026 : Gary Brunton's PeeBee - Antony</li>
-      </ul>
-    </section>
+        <section id="concerts">
+            <h2>Prochains concerts</h2>
+            <ul>
+                <li>18 septembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Orléans</li>
+                <li>21 septembre 2025 : Claudio Pallaro Quartet - Antony</li>
+                <li>12 octobre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Maintenon</li>
+                <li>4 novembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - St Jean d'Angély</li>
+                <li>7 novembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Courville/Eure</li>
+                <li>16 novembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Jazz sur Camembert</li>
+                <li>29 janvier 2026 : Antoine Delaunay/Mélanie Dahan Quintet - Les Bascules, Paris</li>
+                <li>14 mars 2026 : Gary Brunton's PeeBee - Antony</li>
+            </ul>
+        </section>
 
-    <section id="musique">
-      <h2>Musique</h2>
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1671089154&color=%23260611&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/4BWWt8xfwW4?si=D0ZGkjDFFsHPCwCz" title="YouTube video player" allowfullscreen></iframe>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/1SEo9oSsTGc?si=jwtbWFeaOQyzZbzO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </section>
+        <section id="musique">
+            <h2>Musique</h2>
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1671089154&color=%23260611&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4BWWt8xfwW4?si=D0ZGkjDFFsHPCwCz" title="YouTube video player" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1SEo9oSsTGc?si=jwtbWFeaOQyzZbzO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
 
-  <section id="photos">
-      <h2>Galerie Photos</h2>
-      <div class="carousel-container">
-        <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
-        <div class="carousel-track" id="carouselTrack">
-          <img src="photo1.jpg" alt="Luc Isenmann 1">
-          <img src="photo2.jpg" alt="Luc Isenmann 2">
-          <img src="photo3.jpg" alt="Luc Isenmann 3">
-        </div>
-        <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
-      </div>
-    </section>
+        <section id="photos">
+            <h2>Galerie Photos</h2>
+            <div class="carousel-container">
+                <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button> <div class="carousel-track" id="carouselTrack">
+                    <img src="photo1.jpg" alt="Luc Isenmann 1">
+                    <img src="photo2.jpg" alt="Luc Isenmann 2">
+                    <img src="photo3.jpg" alt="Luc Isenmann 3">
+                </div>
+                <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button> </div>
+        </section>
 
-    <section id="contact">
-      <h2>Contact / Booking</h2>
-      <p>Email : <a href="mailto:luc.isenmann@free.fr">booking@lucisenmann.com</a></p>
-      <p>Instagram : <a href="https://instagram.com/lucisenmann" target="_blank">@lucisenmann</a></p>
-      <p>Facebook : <a href="https://www.facebook.com/luc.isenmann" target="_blank">@lucisenmann</a></p>
-      <p>HEAR Strasbourg / CRR Strasbourg</p>
-    </section>
+        <section id="contact">
+            <h2>Contact / Booking</h2>
+            <p>Email : <a href="mailto:luc.isenmann@free.fr">booking@lucisenmann.com</a></p>
+            <p>Instagram : <a href="https://instagram.com/lucisenmann" target="_blank">@lucisenmann</a></p>
+            <p>Facebook : <a href="https://www.facebook.com/luc.isenmann" target="_blank">@lucisenmann</a></p>
+            <p>HEAR Strasbourg / CRR Strasbourg</p>
+        </section>
 
-    <footer>
-      <p>&copy; 2025 Luc Isenmann</p>
-    </footer>
-  </div>
+        <footer>
+            <p>© 2025 Luc Isenmann</p>
+        </footer>
+    </div>
 
-  <button id="topBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑ Haut</button>
+    <button id="topBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑ Haut</button>
+
+    <script>
+        // Récupère l'élément du "track" du carrousel par son ID
+        const carouselTrack = document.getElementById('carouselTrack');
+        // Récupère toutes les images à l'intérieur du track
+        const images = carouselTrack.querySelectorAll('img');
+
+        let currentIndex = 0; // Index de l'image actuellement visible (commence à la première, index 0)
+        let imageWidth = 0; // Largeur de chaque image, sera calculée après le chargement
+
+        // Fonction pour calculer la largeur de l'image + marge
+        function calculateImageWidth() {
+            // Prend la première image pour référence. offsetWidth inclut le padding et la bordure.
+            // On ajoute 20px car vous avez 10px de margin de chaque côté (margin: 0 10px;) dans votre CSS
+            if (images.length > 0) {
+                imageWidth = images[0].offsetWidth + 20;
+            }
+        }
+
+        // Fonction principale pour déplacer le carrousel
+        function moveSlide(direction) {
+            // Calcule la nouvelle position de l'index
+            currentIndex += direction;
+
+            // Gère les limites : si on dépasse la dernière image ou avant la première
+            if (currentIndex >= images.length) {
+                currentIndex = 0; // Reviens à la première image si on dépasse la fin
+            } else if (currentIndex < 0) {
+                currentIndex = images.length - 1; // Va à la dernière image si on recule avant le début
+            }
+
+            // Applique la transformation CSS pour décaler le "track"
+            carouselTrack.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+        }
+
+        // Attendre que le contenu soit chargé pour calculer la largeur des images
+        window.addEventListener('load', () => {
+            calculateImageWidth(); // Calcule la largeur une fois que tout est chargé
+            // S'assurer que le carrousel se positionne correctement au chargement
+            carouselTrack.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+        });
+
+        // Gérer le redimensionnement de la fenêtre
+        // Si la page est redimensionnée, la largeur des images peut changer, il faut recalculer
+        window.addEventListener('resize', () => {
+            calculateImageWidth();
+            // S'assurer que le carrousel reste sur l'image actuelle après redimensionnement
+            carouselTrack.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+        });
+
+    </script>
 </body>
 </html>
