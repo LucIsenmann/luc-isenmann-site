@@ -166,11 +166,13 @@
         }
         .carousel-track img {
             width: 400px;
-            height: auto;
+            height: 300px;
+            object-fit: contain;
             margin: 0 10px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             flex-shrink: 0;
+	    cursor: pointer;
         }
         .carousel-btn {
             position: absolute;
@@ -337,9 +339,9 @@
             <div class="carousel-container">
                 <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">❮</button>
                 <div class="carousel-track" id="carouselTrack">
-                    <img src="photo1.jpg" alt="Luc Isenmann 1">
-                    <img src="photo2.jpg" alt="Luc Isenmann 2">
-                    <img src="photo3.jpg" alt="Luc Isenmann 3">
+                    <img src="photo1.jpg" alt="Greg Osby Quartet, Duc de Lombards Mars 2025">
+                    <img src="photo2.jpg" alt="David Patrois-Jean Charles Richard Trio 2018">
+                    <img src="photo3.jpg" alt="Géraldine Laurent Quartet (Pierre de Bethman,Yoni Zelnick) 2011">
                 </div>
                 <button class="carousel-btn next-btn" onclick="moveSlide(1)">❯</button>
             </div>
