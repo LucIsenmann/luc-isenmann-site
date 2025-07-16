@@ -148,6 +148,44 @@
         font-size: 16px;
       }
     }
+  /* Carrousel */
+    #photos {
+      text-align: center;
+    }
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+    .carousel-track img {
+      width: 300px;
+      height: auto;
+      margin: 0 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      flex-shrink: 0;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 24px;
+      z-index: 10;
+    }
+    .prev-btn {
+      left: 0;
+    }
+    .next-btn {
+      right: 0;
+    }
   </style>
 </head>
 <body>
@@ -161,6 +199,7 @@
       <a href="#bio">Biographie</a>
       <a href="#concerts">Concerts</a>
       <a href="#musique">Musique</a>
+      <a href="#photos">Images</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -208,6 +247,20 @@
       <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1671089154&color=%23260611&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/4BWWt8xfwW4?si=D0ZGkjDFFsHPCwCz" title="YouTube video player" allowfullscreen></iframe>
       <iframe width="560" height="315" src="https://www.youtube.com/embed/1SEo9oSsTGc?si=jwtbWFeaOQyzZbzO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </section>
+
+  <section id="photos">
+      <h2>Galerie Photos</h2>
+      <div class="carousel-container">
+        <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+        <div class="carousel-track" id="carouselTrack">
+          <img src="images/photo1.jpg" alt="Luc Isenmann 1">
+          <img src="images/photo2.jpg" alt="Luc Isenmann 2">
+          <img src="images/photo3.jpg" alt="Luc Isenmann 3">
+          <img src="images/photo4.jpg" alt="Luc Isenmann 4">
+        </div>
+        <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+      </div>
     </section>
 
     <section id="contact">
