@@ -1,125 +1,82 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luc Isenmann</title>
-  <link rel="icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luc Isenmann – Batteur Jazz</title>
+  <meta name="description" content="Luc Isenmann, batteur de jazz contemporain formé au CNSM de Paris. Élève de Daniel Humair, il développe une carrière internationale.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
-    body {
-      font-family: 'Playfair Display', serif;
-      margin: 0;
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
+    :root {
+      --main-color: #111;
+      --accent-color: #b33;
+      --bg-color: #fff;
+      --font-title: 'Raleway', sans-serif;
+      --font-body: 'Lora', serif;
     }
 
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 2rem;
-      min-height: 100vh;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-body);
+      background-color: var(--bg-color);
+      color: var(--main-color);
+      scroll-behavior: smooth;
     }
 
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
-      background: rgba(0, 0, 0, 0.85);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      z-index: 1000;
-    }
-
-    nav {
-      background: rgba(0, 0, 0, 0.85);
-      color: white;
-      text-align: center;
-      padding: 0.5rem;
-      position: sticky;
-      top: 80px;
-      z-index: 999;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     nav a {
-      color: white;
       margin: 0 1rem;
       text-decoration: none;
+      color: var(--main-color);
       font-weight: bold;
+      font-family: var(--font-title);
     }
 
-    section {
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: 3rem auto;
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
-      animation: fadeIn 1s ease-out both;
+    nav a:hover {
+      color: var(--accent-color);
+      transition: color 0.3s;
     }
 
-    footer {
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      text-align: center;
-      padding: 1rem;
+    .container {
+      padding: 7rem 2rem 3rem;
+      max-width: 800px;
+      margin: auto;
     }
 
-    h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-      font-size: 26px;
+    h1, h2 {
+      font-family: var(--font-title);
     }
 
-    h3 {
-      color: #ffc107;
-      margin-top: 1rem;
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    p, li {
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin: 1rem 0;
+    .photo {
+      width: 100%;
+      max-width: 400px;
+      margin: 2rem auto;
+      display: block;
+      border-radius: 8px;
       opacity: 0;
       transform: translateY(20px);
-      animation: fadeIn 1.5s forwards ease-out;
-    }
-
-    iframe {
-      display: block;
-      margin: 2rem auto;
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    #topBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #ffc107;
-      color: #000;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 30px;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      z-index: 1000;
-    }
-
-    #topBtn:hover {
-      background-color: #ffca2c;
+      animation: fadeIn 1s ease forwards;
     }
 
     @keyframes fadeIn {
@@ -129,91 +86,89 @@
       }
     }
 
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .bilingual {
+      margin-top: 1rem;
+      border-top: 1px solid #ddd;
+      padding-top: 1rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 2rem 1rem;
+      color: #888;
+    }
+
     @media (max-width: 600px) {
       nav a {
-        display: block;
-        margin: 0.5rem 0;
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
       }
-      p {
-        font-size: 16px;
+
+      h1 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <header>
-      <h1>Luc Isenmann</h1>
-      <p>Batteur de Jazz Contemporain – Improvisation & Pédagogie</p>
-    </header>
 
+  <header>
+    <div><strong>Luc Isenmann</strong></div>
     <nav>
-      <a href="#bio">Biographie</a>
-      <a href="#concerts">Concerts</a>
-      <a href="#musique">Musique</a>
+      <a href="#bio">Bio</a>
+      <a href="#projets">Projets</a>
       <a href="#contact">Contact</a>
     </nav>
+  </header>
+
+  <main class="container">
 
     <section id="bio">
-      <h2>Luc Isenmann - Batteur de Jazz, improvisateur et enseignant</h2>
-      <img src="luc-isenmann.jpg" alt="Luc Isenmann jouant de la batterie">
-
-      <div lang="fr">
-        <h3>Biographie (FR)</h3>
-        <p>Luc Isenmann, batteur jazz formé au CNSM de Paris et au CRR de Strasbourg, est une figure du jazz contemporain. Élève de Daniel Humair, il développe une carrière de sideman à Paris depuis 1997, jouant dans de nombreux groupes réguliers ou occasionnels.</p>
-        <p>Il a collaboré avec de nombreux musiciens français tels que Michel El Malem (Marc Copland, Romain Pilon, Stéphane Kerecki), Gary Brunton (Pee Bee et Brunt’Off), David Patrois/Jean-Charles Richard Trio, Antoine Delaunay/Mélanie Dahan 5tet, Benjamin Moussay Trio, Géraldine Laurent/Laurent de Wilde, Fred Favarel Trio et Pierre de Bethmann.</p>
-        <p>Il joue également aux côtés de musiciens européens ou américains tels que Greg Osby, Marc Copland, Jerry Bergonzi, Jacky Terrasson, Ricky Ford et Sarah Morrow.</p>
-        <p>Il se produit régulièrement en solo au Musée de la Musique (Philharmonie de Paris).</p>
-        <p>Luc Isenmann enseigne la batterie jazz au Conservatoire de Strasbourg, niveau Dem et Dnspm à la HEAR.</p>
-      </div>
-
-      <div lang="en" style="margin-top: 2em;">
-        <h3>Biography (EN)</h3>
-        <p>Luc Isenmann is a jazz drummer trained at the CNSM in Paris and the CRR in Strasbourg. A student of Daniel Humair, he has been a sideman in Paris since 1997, performing with many French and international artists.</p>
-        <p>He has collaborated with  Michel El Malem (Marc Copland, Romain Pilon, Stéphane Kerecki), Gary Brunton (Pee Bee et Brunt’Off), David Patrois/Jean-Charles Richard Trio, Antoine Delaunay/Mélanie Dahan 5tet, Benjamin Moussay Trio, Géraldine Laurent/Laurent de Wilde, Fred Favarel Trio et Pierre de Bethmann.</p>
-        <p>He has also worked with Greg Osby, Marc Copland, Jerry Bergonzi, Jacky Terrasson, Ricky Ford, and Sarah Morrow.</p>
-        <p>He plays regulary Solo concerts at Musée de la Musique (Philharmonie de Paris).</p>
-        <p>He teaches jazz drums at the Strasbourg Conservatory (HEAR), Dem and Dnspm levels.</p>
+      <h1>Luc Isenmann</h1>
+      <h2>Batteur de jazz contemporain</h2>
+      <img src="luc-photo.jpg" alt="Luc Isenmann jouant de la batterie" class="photo" />
+      <p>
+        Formé au CNSM de Paris et au CRR de Strasbourg, Luc Isenmann est une figure du jazz contemporain. Élève de Daniel Humair, il développe une carrière de sideman à Paris depuis 1997, jouant dans de nombreux groupes réguliers ou occasionnels.
+      </p>
+      <div class="bilingual">
+        <p>
+          Trained at the Paris CNSM and Strasbourg CRR, Luc Isenmann is a figure of contemporary jazz. A student of Daniel Humair, he has been an active sideman on the Paris scene since 1997, playing in many regular and occasional groups.
+        </p>
       </div>
     </section>
 
-    <section id="concerts"> 
-      <h2>🎷 Prochains concerts</h2>
-      <ul>
-        <li>18 septembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Orléans</li>
-        <li>21 septembre 2025 : Claudio Pallaro Quartet - Antony</li>
-        <li>12 octobre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Maintenon</li>
-        <li>4 novembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - St Jean d'Angély</li>
-        <li>7 novembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Courville/Eure</li>
-        <li>16 novembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Jazz sur Camembert</li>
-        <li>29 janvier 2026 : Antoine Delaunay/Mélanie Dahan Quintet - Les Bascules, Paris</li>
-        <li>14 mars 2026 : Gary Brunton's PeeBee - Antony</li>
-      </ul>
-    </section>
-
-    <section id="musique">
-      <h2>🎧 Musique</h2>
-      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1671089154&color=%23260611&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/luc-isenmann" title="Luc Isenmann" target="_blank" style="color: #cccccc; text-decoration: none;">Luc Isenmann</a> · <a href="https://soundcloud.com/luc-isenmann/wonder-manon" title="Michel ElMalem&#x27;s &quot;Wonder Manon&quot;" target="_blank" style="color: #cccccc; text-decoration: none;">Michel ElMalem&#x27;s &quot;Wonder Manon&quot;</a></div>
-
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/4BWWt8xfwW4?si=D0ZGkjDFFsHPCwCz" 
-        title="YouTube video player" allowfullscreen></iframe>
-
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/R0OWwqyztgs?si=urjy3mJ6hrGN-qeQ" 
-        title="YouTube video player" allowfullscreen></iframe>
+    <section id="projets">
+      <h2>Projets</h2>
+      <p>
+        Luc participe à des projets allant du jazz acoustique au jazz expérimental, en collaboration avec de nombreux musiciens européens. Il explore également le solo de batterie, influencé par Max Roach, Marcus Gilmore et Daniel Humair.
+      </p>
+      <div class="bilingual">
+        <p>
+          Luc is involved in projects ranging from acoustic jazz to experimental music, collaborating with many European musicians. He also explores solo drumming, influenced by Max Roach, Marcus Gilmore and Daniel Humair.
+        </p>
+      </div>
     </section>
 
     <section id="contact">
-      <h2>📬 Contact / Booking</h2>
-      <p>Email : <a href="mailto:lucis@free.fr">booking@lucisenmann.com</a></p>
-      <p>Instagram : <a href="https://instagram.com/lucisenmann" target="_blank">@lucisenmann</a></p>
-      <p>HEAR Strasbourg / CRR Strasbourg</p>
+      <h2>Contact</h2>
+      <p>Pour toute demande professionnelle, vous pouvez écrire à : <a href="mailto:lucisenmann@gmail.com">lucisenmann@gmail.com</a></p>
+      <div class="bilingual">
+        <p>For professional inquiries, please email: <a href="mailto:lucisenmann@gmail.com">lucisenmann@gmail.com</a></p>
+      </div>
     </section>
 
-    <footer>
-      <p>&copy; 2025 Luc Isenmann</p>
-    </footer>
-  </div>
+  </main>
 
-  <button id="topBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑ Haut</button>
+  <footer>
+    &copy; 2025 Luc Isenmann – Site par Luc + ChatGPT ✨
+  </footer>
+
 </body>
 </html>
