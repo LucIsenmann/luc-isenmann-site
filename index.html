@@ -190,82 +190,86 @@
         .next-btn {
             right: 0;
         }
+/* --- NOUVEAUX STYLES POUR LA MODALE PLEIN ÉCRAN --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    animation: fadeInModal 0.3s ease-out;
+}
 
-        /* --- NOUVEAUX STYLES POUR LA MODALE PLEIN ÉCRAN --- */
-        .modal {
-            display: none; /* Caché par défaut */
-            position: fixed; /* Reste en place même en scrollant */
-            z-index: 2000; /* Plus haut que tout le reste */
-            left: 0;
-            top: 0;
-            width: 100%; /* Pleine largeur */
-            height: 100%; /* Pleine hauteur */
-            overflow: auto; /* Permet le scroll si l'image est trop grande */
-            background-color: rgba(0,0,0,0.9); /* Fond noir semi-transparent */
-            animation: fadeInModal 0.3s ease-out; /* Animation d'apparition */
-        }
+/* Modifiez cette section pour être plus spécifique */
+.modal .modal-content { /* Cible spécifiquement les images DANS la modale */
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    animation: zoomIn 0.3s ease-out; /* Petite animation de zoom */
+    opacity: 1; /* S'assure que l'opacité est toujours 1 pour les images de la modale */
+    transform: translateY(0); /* S'assure qu'elle n'est pas décalée par une animation précédente */
+}
 
-        .modal-content {
-            margin: auto; /* Centre l'image */
-            display: block; /* Nécessaire pour aligner avec margin:auto */
-            max-width: 90%; /* Largeur maximale de l'image dans la modale */
-            max-height: 90%; /* Hauteur maximale de l'image dans la modale */
-            object-fit: contain; /* S'assure que l'image est entièrement visible */
-            animation: zoomIn 0.3s ease-out; /* Petite animation de zoom */
-        }
 
-        /* Texte de légende de l'image */
-        #caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            text-align: center;
-            color: #ccc;
-            padding: 10px 0;
-            height: auto; /* Hauteur ajustée automatiquement */
-            font-size: 1.2em;
-        }
+/* Texte de légende de l'image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: auto;
+    font-size: 1.2em;
+}
 
-        /* Bouton de fermeture (X) */
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-            z-index: 2001; /* Au-dessus de la modale */
-        }
+/* Bouton de fermeture (X) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 2001;
+}
 
-        .close-btn:hover,
-        .close-btn:focus {
-            color: #bbb;
-            text-decoration: none;
-        }
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+}
 
-        /* Animations */
-        @keyframes fadeInModal {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
+/* Animations */
+@keyframes fadeInModal {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
 
-        @keyframes zoomIn {
-            from {transform: scale(0.8);}
-            to {transform: scale(1);}
-        }
+@keyframes zoomIn {
+    from {transform: scale(0.8);}
+    to {transform: scale(1);}
+}
 
-        /* Ajustements pour les petits écrans */
-        @media only screen and (max-width: 700px){
-            .modal-content {
-                width: 100%;
-                max-width: 100%;
-                max-height: 80%; /* Plus de place pour les légendes sur petits écrans */
-            }
-        }
-    </style>
+/* Ajustements pour les petits écrans */
+@media only screen and (max-width: 700px){
+    .modal .modal-content { /* Cible spécifiquement les images DANS la modale */
+        width: 100%;
+        max-width: 100%;
+        max-height: 80%;
+    }
+}
+
+            </style>
 </head>
 <body>
     <div class="overlay">
@@ -333,7 +337,6 @@
             <div class="carousel-container">
                 <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">❮</button>
                 <div class="carousel-track" id="carouselTrack">
-<img src="https://via.placeholder.com/400x300" alt="Image de test">
                     <img src="photo1.jpg" alt="Luc Isenmann 1">
                     <img src="photo2.jpg" alt="Luc Isenmann 2">
                     <img src="photo3.jpg" alt="Luc Isenmann 3">
