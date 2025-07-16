@@ -155,9 +155,8 @@
         .carousel-container {
             position: relative;
             overflow: hidden;
-            /* Permet de positionner les boutons par rapport à ce conteneur */
-            width: fit-content; /* S'adapte à la largeur du contenu */
-            margin: 0 auto; /* Centre le conteneur */
+            width: fit-content;
+            margin: 0 auto;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
@@ -171,7 +170,7 @@
             margin: 0 10px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            flex-shrink: 0; /* Empêche les images de rétrécir */
+            flex-shrink: 0;
         }
         .carousel-btn {
             position: absolute;
@@ -190,6 +189,81 @@
         }
         .next-btn {
             right: 0;
+        }
+
+        /* --- NOUVEAUX STYLES POUR LA MODALE PLEIN ÉCRAN --- */
+        .modal {
+            display: none; /* Caché par défaut */
+            position: fixed; /* Reste en place même en scrollant */
+            z-index: 2000; /* Plus haut que tout le reste */
+            left: 0;
+            top: 0;
+            width: 100%; /* Pleine largeur */
+            height: 100%; /* Pleine hauteur */
+            overflow: auto; /* Permet le scroll si l'image est trop grande */
+            background-color: rgba(0,0,0,0.9); /* Fond noir semi-transparent */
+            animation: fadeInModal 0.3s ease-out; /* Animation d'apparition */
+        }
+
+        .modal-content {
+            margin: auto; /* Centre l'image */
+            display: block; /* Nécessaire pour aligner avec margin:auto */
+            max-width: 90%; /* Largeur maximale de l'image dans la modale */
+            max-height: 90%; /* Hauteur maximale de l'image dans la modale */
+            object-fit: contain; /* S'assure que l'image est entièrement visible */
+            animation: zoomIn 0.3s ease-out; /* Petite animation de zoom */
+        }
+
+        /* Texte de légende de l'image */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: auto; /* Hauteur ajustée automatiquement */
+            font-size: 1.2em;
+        }
+
+        /* Bouton de fermeture (X) */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 2001; /* Au-dessus de la modale */
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInModal {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes zoomIn {
+            from {transform: scale(0.8);}
+            to {transform: scale(1);}
+        }
+
+        /* Ajustements pour les petits écrans */
+        @media only screen and (max-width: 700px){
+            .modal-content {
+                width: 100%;
+                max-width: 100%;
+                max-height: 80%; /* Plus de place pour les légendes sur petits écrans */
+            }
         }
     </style>
 </head>
@@ -257,12 +331,14 @@
         <section id="photos">
             <h2>Galerie Photos</h2>
             <div class="carousel-container">
-                <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button> <div class="carousel-track" id="carouselTrack">
+                <button class="carousel-btn prev-btn" onclick="moveSlide(-1)">❮</button>
+                <div class="carousel-track" id="carouselTrack">
                     <img src="photo1.jpg" alt="Luc Isenmann 1">
                     <img src="photo2.jpg" alt="Luc Isenmann 2">
                     <img src="photo3.jpg" alt="Luc Isenmann 3">
                 </div>
-                <button class="carousel-btn next-btn" onclick="moveSlide(1)">&#10095;</button> </div>
+                <button class="carousel-btn next-btn" onclick="moveSlide(1)">❯</button>
+            </div>
         </section>
 
         <section id="contact">
@@ -280,52 +356,92 @@
 
     <button id="topBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑ Haut</button>
 
+    <div id="fullscreenModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
     <script>
-        // Récupère l'élément du "track" du carrousel par son ID
+        // --- Code du carrousel ---
         const carouselTrack = document.getElementById('carouselTrack');
-        // Récupère toutes les images à l'intérieur du track
         const images = carouselTrack.querySelectorAll('img');
 
-        let currentIndex = 0; // Index de l'image actuellement visible (commence à la première, index 0)
-        let imageWidth = 0; // Largeur de chaque image, sera calculée après le chargement
+        let currentIndex = 0;
+        let imageWidth = 0;
 
-        // Fonction pour calculer la largeur de l'image + marge
         function calculateImageWidth() {
-            // Prend la première image pour référence. offsetWidth inclut le padding et la bordure.
-            // On ajoute 20px car vous avez 10px de margin de chaque côté (margin: 0 10px;) dans votre CSS
             if (images.length > 0) {
-                imageWidth = images[0].offsetWidth + 20;
+                // Prendre la première image du carrousel pour calculer la largeur
+                // Assurez-vous que l'image est visible ou que sa largeur est définie par CSS
+                imageWidth = images[0].offsetWidth + 20; // width + 10px margin left + 10px margin right
             }
         }
 
-        // Fonction principale pour déplacer le carrousel
         function moveSlide(direction) {
-            // Calcule la nouvelle position de l'index
             currentIndex += direction;
 
-            // Gère les limites : si on dépasse la dernière image ou avant la première
             if (currentIndex >= images.length) {
-                currentIndex = 0; // Reviens à la première image si on dépasse la fin
+                currentIndex = 0;
             } else if (currentIndex < 0) {
-                currentIndex = images.length - 1; // Va à la dernière image si on recule avant le début
+                currentIndex = images.length - 1;
             }
 
-            // Applique la transformation CSS pour décaler le "track"
             carouselTrack.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
         }
 
-        // Attendre que le contenu soit chargé pour calculer la largeur des images
+        // --- Code pour la modale plein écran (lightbox) ---
+
+        // Récupère les éléments de la modale
+        const modal = document.getElementById("fullscreenModal");
+        const modalImg = document.getElementById("img01");
+        const captionText = document.getElementById("caption");
+        const closeBtn = document.getElementsByClassName("close-btn")[0];
+
+        // Ajoute un écouteur d'événements à chaque image du carrousel
+        images.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "block"; // Affiche la modale
+                modalImg.src = this.src; // Met l'image cliquée dans la modale
+                captionText.innerHTML = this.alt; // Affiche le texte alternatif comme légende
+
+                // Empêche le défilement de la page en arrière-plan
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+        // Quand on clique sur le bouton de fermeture (X)
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = "none"; // Cache la modale
+            document.body.style.overflow = "auto"; // Réactive le défilement de la page
+        });
+
+        // Quand on clique sur le fond de la modale (pas l'image elle-même)
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) { // Vérifie que le clic est bien sur le fond et non l'image ou la légende
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });
+
+        // Permet de fermer la modale avec la touche Échap
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                if (modal.style.display === "block") {
+                    modal.style.display = "none";
+                    document.body.style.overflow = "auto";
+                }
+            }
+        });
+
+        // --- Initialisation et ajustements (commun au carrousel et modale) ---
         window.addEventListener('load', () => {
             calculateImageWidth(); // Calcule la largeur une fois que tout est chargé
-            // S'assurer que le carrousel se positionne correctement au chargement
             carouselTrack.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
         });
 
-        // Gérer le redimensionnement de la fenêtre
-        // Si la page est redimensionnée, la largeur des images peut changer, il faut recalculer
         window.addEventListener('resize', () => {
             calculateImageWidth();
-            // S'assurer que le carrousel reste sur l'image actuelle après redimensionnement
             carouselTrack.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
         });
 
