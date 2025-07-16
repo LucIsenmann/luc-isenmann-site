@@ -86,10 +86,47 @@
             margin-top: 1rem;
         }
 
-        p, li {
-            font-size: 18px;
-            line-height: 1.6;
-        }
+        /* Styles pour chaque élément de la liste (chaque concert) */
+#concerts li {
+    font-family: 'Montserrat', sans-serif; /* Utilise la police principale du corps */
+    font-size: 19px; /* Taille de police pour les dates */
+    line-height: 1.8; /* Espacement entre les lignes */
+    color: #f0f0f0; /* Couleur du texte, un blanc légèrement adouci */
+    margin-bottom: 1rem; /* Espacement entre chaque élément de la liste */
+    text-align: left; /* Aligne le texte à gauche */
+    padding-left: 20px; /* Indentation pour le texte */
+    position: relative; /* Pour positionner un élément décoratif */
+}
+.concert-date {
+    font-style: italic; /* Met la date en italique */
+}
+
+.concert-group {
+    font-weight: bold; /* Met le nom du groupe en gras */
+}
+
+.concert-location {
+    color: #FFFFAA; /* Couleur jaune clair pour le lieu */
+    /* Vous pouvez ajuster cette couleur avec un autre code hexadécimal si vous voulez un jaune différent */
+}
+/* --- NOUVEAUX STYLES SPÉCIFIQUES POUR LES LIENS DES LIEUX DE CONCERTS --- */
+
+.concert-location-link {
+    text-decoration: none; /* Supprime le soulignement par défaut des liens */
+    color: inherit; /* Le lien hérite de la couleur de son parent (le span .concert-location) */
+    /* Vous pourriez aussi mettre directement color: #FFFFAA; si vous voulez forcer la couleur */
+}
+
+/* Optionnel : Changement de couleur ou de style au survol de la souris */
+.concert-location-link:hover {
+    color: #ffc107; /* Jaune plus vif au survol */
+    text-decoration: underline; /* Réapparaît le soulignement au survol pour indiquer que c'est cliquable */
+}
+
+/* Conservez les styles du span pour la couleur et autres si l'héritage ne suffit pas */
+.concert-location {
+    color: #FFFFAA; /* Couleur jaune clair pour le lieu */
+}
 
         img {
             max-width: 100%;
@@ -109,8 +146,12 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
 
-        ul {
-            padding-left: 1.2rem;
+        /* Styles pour la liste des concerts */
+	#concerts ul {
+    list-style-type: none; /* Supprime les puces par défaut de la liste */
+    padding: 0; /* Supprime le padding par défaut de la liste */
+    margin-top: 2rem; /* Ajoute un peu d'espace au-dessus de la liste */
+
         }
 
         #topBtn {
@@ -314,18 +355,18 @@
         </section>
 
         <section id="concerts">
-            <h2>Prochains concerts</h2>
-            <ul>
-                <li>18 septembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Orléans</li>
-                <li>21 septembre 2025 : Claudio Pallaro Quartet - Antony</li>
-                <li>12 octobre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Maintenon</li>
-                <li>4 novembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - St Jean d'Angély</li>
-                <li>7 novembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Courville/Eure</li>
-                <li>16 novembre 2025 : Antoine Delaunay/Mélanie Dahan Quintet - Jazz sur Camembert</li>
-                <li>29 janvier 2026 : Antoine Delaunay/Mélanie Dahan Quintet - Les Bascules, Paris</li>
-                <li>14 mars 2026 : Gary Brunton's PeeBee - Antony</li>
-            </ul>
-        </section>
+    <h2>Prochains concerts</h2>
+    <ul>
+        <li><span class="concert-date">18 septembre 2025</span> : <span class="concert-group">Antoine Delaunay/Mélanie Dahan Quintet</span> - <a href="https://www.becarreproduction.com/evenement/antoine-delaunay-quintet-a-french-songbook/" target="_blank" class="concert-location-link"><span class="concert-location">Orléans</span></a></li>
+        <li><span class="concert-date">21 septembre 2025</span> : <span class="concert-group">Claudio Pallaro Quartet</span> - <a href="LienDuConcertIciPourAntony" target="_blank" class="concert-location-link"><span class="concert-location">Antony</span></a></li>
+        <li><span class="concert-date">12 octobre 2025</span> : <span class="concert-group">Antoine Delaunay/Mélanie Dahan Quintet</span> - <a href="LienDuConcertIciPourMaintenon" target="_blank" class="concert-location-link"><span class="concert-location">Maintenon</span></a></li>
+        <li><span class="concert-date">4 novembre 2025</span> : <span class="concert-group">Antoine Delaunay/Mélanie Dahan Quintet</span> - <a href="https://eden.angely.net/evenements/antoine-delaunay-quintet-4-novembre-2025/" target="_blank" class="concert-location-link"><span class="concert-location">St Jean d'Angély</span></a></li>
+        <li><span class="concert-date">7 novembre 2025</span> : <span class="concert-group">Antoine Delaunay/Mélanie Dahan Quintet</span> - <a href="https://www.courville-sur-eure.fr/article_44_1_saison-culturelle-2025_fr.html" target="_blank" class="concert-location-link"><span class="concert-location">Courville/Eure</span></a></li>
+        <li><span class="concert-date">16 novembre 2025</span> : <span class="concert-group">Antoine Delaunay/Mélanie Dahan Quintet</span> - <a href="https://billetterie.vendee-maraispoitevin.com/billetteries/le-camembert-jazz-festival/antoine-delaunay-quintet-a-french-songbook" target="_blank" class="concert-location-link"><span class="concert-location">Jazz sur Camembert</span></a></li>
+        <li><span class="concert-date">29 janvier 2026</span> : <span class="concert-group">Antoine Delaunay/Mélanie Dahan Quintet</span> - <a href="LienDuConcertIciPourParis" target="_blank" class="concert-location-link"><span class="concert-location">Les Bascules, Paris</span></a></li>
+        <li><span class="concert-date">14 mars 2026</span> : <span class="concert-group">Gary Brunton's PeeBee</span> - <a href="LienDuConcertIciPourAntony2" target="_blank" class="concert-location-link"><span class="concert-location">Antony</span></a></li>
+    </ul>
+</section>
 
         <section id="musique">
             <h2>Musique</h2>
